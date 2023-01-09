@@ -19,6 +19,12 @@ namespace StatFetcher
 
             var result = xml.Substring(xml.IndexOf("<table"));
             result = result.Remove(result.LastIndexOf("</table>") + 8);
+            result = result.Replace('Ś', 'S');
+            result = result.Replace('ł', 'l');
+            result = result.Replace('Ł', 'L');
+            result = result.Replace('ń', 'n');
+            result = result.Replace('ą', 'a');
+            result = result.Replace('ó', 'o');
 
             File.WriteAllText(path, result);
         }
